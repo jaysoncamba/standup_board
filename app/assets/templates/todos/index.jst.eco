@@ -1,0 +1,15 @@
+<h2>Todos</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>Ticket</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Status</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+</table>
+
+<button>Add New Todo</button>

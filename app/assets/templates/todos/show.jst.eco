@@ -1,0 +1,22 @@
+<h2>Read Todo</h2>
+<ul>
+    <li>
+      <label>Ticket</label>
+      <span><%= @ticket %></span>
+    </li>
+    <li>
+      <label>Title</label>
+      <span><%= @title %></span>
+    </li>
+    <li>
+      <label>Description</label>
+      <span><%= @description %></span>
+    </li>
+    <li>
+      <label>Status</label>
+      <span>
+        <%= @status %>
+      </span>
+    </li>
+</ul>
+<a href="/todos">Back to Index</a>

@@ -1,0 +1,33 @@
+<h2>Create new Todo</h2>
+
+<form method="post">
+  <ul>
+    <li>
+      <label>Ticket</label>
+      <span><input type='text' name='ticket' class='textfield' /></span>
+    </li>
+    <li>
+      <label>Title</label>
+      <span><input type='text' name='title' class='textfield' /></span>
+    </li>
+    <li>
+      <label>Description</label>
+      <span><textarea name='description' class='textarea' /></span>
+    </li>
+    <li>
+      <label>Status</label>
+      <span>
+        <select class='selectbox' name='status'>
+          <option value=0>Unstarted</option>
+          <option value=1>Unestimated</option>
+          <option value=1>Started</option>
+          <option value=3>Finished</option>
+          <option value=4>Delivered</option>
+          <option value=5>Accepted</option>
+          <option value=6>Rejected</option>
+        </select>
+      </span>
+    </li>
+  </ul>
+  <button>Submit</button>
+</form>
