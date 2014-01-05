@@ -21,6 +21,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -31,8 +32,28 @@ gem 'jbuilder', '~> 1.2'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc',          group: :doc, require: false
 
+# backbone
+gem 'backbone-on-rails'
+gem 'lodash-rails'
+
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/jonleighton/spring
-gem 'spring',        group: :development
+group :development do
+  gem 'spring'
+  gem 'thin'
+  gem 'quiet_assets'
+  gem 'pry-rails'
+end
+
+group :test do
+  gem 'shoulda-matchers'
+  gem 'selenium-webdriver'
+  gem 'capybara'
+  gem 'factory_girl_rails'
+end
+
+group :development, :test do
+  gem 'rspec-rails'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
