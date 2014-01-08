@@ -33,6 +33,8 @@ gem 'jbuilder', '~> 1.2'
 gem 'sdoc',          group: :doc, require: false
 
 # backbone
+gem 'twitter-bootstrap-rails'
+gem 'therubyracer'
 gem 'backbone-on-rails'
 gem 'lodash-rails'
 

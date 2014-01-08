@@ -12,10 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap
 //= require lodash
 //= require backbone
-//= require_tree ./helpers
 //= require standup_board
+//= require_tree ./helpers
 //= require_tree ../templates
 //= require_tree ./backbone/models
 //= require_tree ./backbone/collections

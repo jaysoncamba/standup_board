@@ -3,11 +3,11 @@
 <table>
   <thead>
   <tr>
-    <th>Ticket</th>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Status</th>
-    <th>Actions</th>
+    <th class='ticket'>Ticket</th>
+    <th class='title'>Title</th>
+    <th class='desc'>Description</th>
+    <th class='status'>Status</th>
+    <th class='action'>Actions</th>
   </tr>
   </thead>
 </table>

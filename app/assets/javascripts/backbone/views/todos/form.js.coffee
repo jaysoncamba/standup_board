@@ -20,5 +20,5 @@ class StandupBoard.Views.TodosForm extends Backbone.View
     @collection.create(
       getFormObj(this.$el.find('form')),
       success: (response) ->
-        StandupBoard.mainRouter.navigate('/show/' +response.get('id'), {trigger: true})
+        StandupBoard.mainRouter.navigate('/show/' + response.get('id'), {trigger: true})
       )
