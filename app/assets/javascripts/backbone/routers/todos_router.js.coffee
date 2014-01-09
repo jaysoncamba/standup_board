@@ -1,22 +1,22 @@
-class StandupBoard.Routers.Todos extends Backbone.Router
+class sub.Routers.Todos extends Backbone.Router
   routes:
     '' : 'index'
     'new' : 'form'
-    'edit' : 'form'
-    'show/:id' : 'show'
+    'edit/:id' : 'form'
 
   index: ->
-    view = new StandupBoard.Views.TodosIndex
-    view.render().el
+    if (!sub.indexView)
+      sub.indexView = new sub.Views.TodosIndex()
+      sub.indexView.render()
+    else
+      sub.indexView.render()
+      # backbone bug
+      # supposed to be just: sub.indexView.collection.fetch({reset: true})
+      # but due to the changes in the collection, i haven't figured out how to due this yet ;/
+      sub.indexView.collection.reset()
+      sub.indexView.collection.fetch()
+      sub.indexView.delegateEvents() # delegate events when the view is recycled
 
-  form: ->
-    collection = new StandupBoard.Collections.Todos()
-    view = new StandupBoard.Views.TodosForm(collection: collection)
-    view.render().el
-
-  show: (id) ->
-    model = new StandupBoard.Models.Todo({id: id})
-    model.fetch()
-    view = new StandupBoard.Views.TodosShow(model: model )
-    view.render().el
-
+  form: (id) ->
+    model = new sub.Models.Todo({id: id})
+    new sub.Views.TodosForm(model: model)
