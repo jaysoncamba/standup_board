@@ -1,12 +1,13 @@
-window.StandupBoard =
+window.sub =
   Models: {}
   Collections: {}
   Views: {}
   Routers: {}
+  syncing: {}
   initialize: ->
-    this.mainRouter = new StandupBoard.Routers.Todos()
+    this.mainRouter = new sub.Routers.Todos()
     Backbone.history.start
       root: "/todos"
 
 $(document).ready ->
-  StandupBoard.initialize()
+  sub.initialize()

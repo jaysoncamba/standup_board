@@ -25,7 +25,17 @@ class TodosController < ApplicationController
   end
 
   def update
-    respond_with @todo
+    # not really recommended but it'll have to make do for now
+    valid = @todo.update_attributes(todo_params)
+    debugger
+    respond_to do |format|
+      format.html
+      format.json {
+        render :json => {
+            :success => valid
+        }
+      }
+    end
   end
 
   def show

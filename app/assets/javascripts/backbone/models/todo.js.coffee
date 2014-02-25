@@ -1,2 +1,3 @@
-class StandupBoard.Models.Todo extends Backbone.Model
-  url: '/todos'
+class sub.Models.Todo extends Backbone.Model
+  urlRoot: '/todos'
+  # sync: -> false

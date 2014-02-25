@@ -1,33 +1,39 @@
-<h2>Create new Todo</h2>
-
+<h2><%= createOrUpdate(@id) %> Todo</h2>
 <form method="post" id='todo-form'>
   <ul>
     <li>
       <label>Ticket</label>
-      <span><input type='text' name='ticket' class='textfield' /></span>
+      <span><input type='text' name='ticket' class='textfield' value="<%= @ticket %>"/></span>
     </li>
     <li>
       <label>Title</label>
-      <span><input type='text' name='title' class='textfield' /></span>
+      <span><input type='text' name='title' class='textfield' value="<%= @title %>"/></span>
     </li>
     <li>
       <label>Description</label>
-      <span><textarea name='description' class='textarea' /></span>
+      <span><textarea name='description' class='textarea'><%= @description %></textarea></span>
     </li>
     <li>
       <label>Status</label>
       <span>
         <select class='selectbox' name='status'>
-          <option value=0>Unstarted</option>
-          <option value=1>Unestimated</option>
-          <option value=1>Started</option>
-          <option value=3>Finished</option>
-          <option value=4>Delivered</option>
-          <option value=5>Accepted</option>
-          <option value=6>Rejected</option>
+          <option <%= dropDownHelper(0, @status) %>>Unstarted</option>
+          <option <%= dropDownHelper(1, @status) %>>Unestimated</option>
+          <option <%= dropDownHelper(2, @status) %>>Started</option>
+          <option <%= dropDownHelper(3, @status) %>>Finished</option>
+          <option <%= dropDownHelper(4, @status) %>>Delivered</option>
+          <option <%= dropDownHelper(5, @status) %>>Accepted</option>
+          <option <%= dropDownHelper(6, @status) %>>Rejected</option>
         </select>
       </span>
     </li>
   </ul>
-  <button>Submit</button>
+
+
 </form>
+<button class="submit btn btn-default" href="javascript:void(0)">
+  Submit
+</button>
+<button class="index btn btn-default" href="javascript:void(0)">
+  Return to Index
+</button>

@@ -1,7 +1,9 @@
 <td><%= @ticket %></td>
-<td><%= @title%></td>
+<td>
+  <a href='javascript:void(0)' class='edit'><%= @title%></a>
+</td>
 <td><%= @description %></td>
-<td><%= @status %></td>
+<td><%= statusHelper(@status)%></td>
 <td class='actions'>
   <a href='javascript:void(0)' class='delete'>Delete</a>
   <a href='javascript:void(0)' class='update_status'>Update Status</a>

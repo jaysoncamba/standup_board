@@ -1,3 +1,5 @@
-class StandupBoard.Collections.Todos extends Backbone.Collection
+class sub.Collections.Todos extends Backbone.Collection
   url: '/todos'
-  model: StandupBoard.Models.Todo
+  model: sub.Models.Todo
+
+  initialize: ->

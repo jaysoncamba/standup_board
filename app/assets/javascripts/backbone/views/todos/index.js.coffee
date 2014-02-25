@@ -1,7 +1,7 @@
-class StandupBoard.Views.TodosIndex extends Backbone.View
+class sub.Views.TodosIndex extends sub.Views.Base
   template: JST['todos/index']
   el: '#todos-container'
-  collection: new StandupBoard.Collections.Todos
+  collection: new sub.Collections.Todos
   events:
     # kinda generic :D
     'click button' : 'addNewTodo'
@@ -14,10 +14,11 @@ class StandupBoard.Views.TodosIndex extends Backbone.View
     @$el.html(@template())
 
   appendTodo: (todo) ->
-    view = new StandupBoard.Views.TodosTableRow(model: todo, collection: @collection)
+    view = new sub.Views.TodosTableRow(model: todo, collection: @collection)
     # we don't need to use .el if we're returning only the html
     elem = view.render().el
     @$el.find('table').append(elem)
 
   addNewTodo: (event) ->
-    StandupBoard.mainRouter.navigate('/new', {trigger: true})
+    @leave()
+    sub.mainRouter.navigate('/new', {trigger: true})
