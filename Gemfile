@@ -63,6 +63,9 @@ end
 
 #user registration/authentication
 gem 'sorcery'
+
+#omniauth
+gem 'omniauth'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
