@@ -40,6 +40,7 @@ gem 'lodash-rails'
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/jonleighton/spring
 group :development do
+  gem 'haml-rails'
   gem 'spring'
   gem 'thin'
   gem 'quiet_assets'
