@@ -5,7 +5,8 @@ class UserSessionsController < ApplicationController
   end
 
   def create
-    if @user = login(params[:email], params[:password])
+    @user = User.find_or_create_from_auth_hash(auth_callback)
+    if @user = login(email, password)
       redirect_back_or_to(:users, notice: 'Login successful')
     else
       flash.now[:alert] = "Login failed"
@@ -17,4 +18,10 @@ class UserSessionsController < ApplicationController
     logout
     redirect_to(:users, notice: 'Logged out!')
   end
+
+  protected
+
+    def auth_callback
+      request.env['omniauth.auth']
+    end
 end
