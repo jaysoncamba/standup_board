@@ -38,6 +38,9 @@ gem 'therubyracer'
 gem 'backbone-on-rails'
 gem 'lodash-rails'
 
+#less 
+gem "less-rails"
+
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/jonleighton/spring
 group :development do
   gem 'haml-rails'
