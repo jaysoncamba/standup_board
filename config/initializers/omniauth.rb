@@ -1,4 +1,4 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :facebook, Indinero::FACEBOOK_KEY, Indinero::FACEBOOK_SECRET,
+  provider :facebook, InDinero::FACEBOOK_KEY, InDinero::FACEBOOK_SECRET,
   			:scope => 'email,user_birthday', :display => 'popup'
 end

@@ -5,7 +5,14 @@ class UserSessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_or_create_from_auth_hash(auth_callback)
+    auth = auth_callback
+    email = params['email']
+    password = params['password']
+    if auth
+      @user = Authentication.find_from_auth_hash(auth)
+      email = @user.email
+      password = @user.crypted_password
+    end
     if @user = login(email, password)
       redirect_back_or_to(:users, notice: 'Login successful')
     else
