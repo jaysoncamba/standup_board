@@ -57,6 +57,8 @@ group :development, :test do
   gem 'rspec-rails'
 end
 
+#user registration/authentication
+gem 'sorcery'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
