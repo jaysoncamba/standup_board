@@ -8,10 +8,13 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true
   validates :email, uniqueness: true
 
-  self.create_from_auth_hash(authHash)
-
-  	create(email:authHash["info"]["email"], password:)
-
+  def apply_omniauth(omniauth)
+  	if email.blank?
+      self.email = omniauth['info']['email'] 
+      self.password = SecureRandom.hex(8) # we cant let password blank.
+      self.password_confirmation = self.password
+	end
+    authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
   end
 
 end

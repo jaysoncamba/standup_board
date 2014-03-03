@@ -1,4 +1,4 @@
-= form_for(@user) do |f|
+= form_for(@user, html: {class:"form-horizontal"}) do |f|
   - if @user.errors.any?
     #error_explanation
       %h2
@@ -7,25 +7,18 @@
       %ul
         - @user.errors.full_messages.each do |msg|
           %li= msg
-  .field
-    = f.label :email
-    %br/
-    = f.text_field :email
-  .field
-    = f.label :crypted_password
-    %br/
-    = f.text_field :crypted_password
-  .field
-    = f.label :salt
-    %br/
-    = f.text_field :salt
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation
-  .actions
-    = f.submit
+  .control-group
+    %label.control-label{for: "email"} Email
+    .controls
+      = f.text_field :email, placeholder: "Email"
+  .control-group
+    %label.control-label{for: "password"} Password
+    .controls
+      = f.password_field :password, placeholder: "Password"
+  .control-group
+    %label.control-label{for: "password"} Password
+    .controls
+      = f.password_field :password_confirmation, placeholder: "Confirm Password"
+  .control-group
+    .controls
+      %button.btn{type: "submit"}Signup

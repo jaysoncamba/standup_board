@@ -5,19 +5,26 @@ class UserSessionsController < ApplicationController
   end
 
   def create
-    auth = auth_callback
-    email = params['email']
-    password = params['password']
-    if auth
-      @user = Authentication.find_from_auth_hash(auth)
-      email = @user.email
-      password = @user.crypted_password
-    end
-    if @user = login(email, password)
+    if omniauth = auth_callback
+      authentication = Authentication.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
+      if authentication
+        auto_login(authentication.user)
+        redirect_back_or_to(:users, notice: 'Login successful')
+      else
+        user = User.new
+        user.apply_omniauth(omniauth)
+        if user.save!
+          auto_login(user)
+          redirect_back_or_to(:users, notice: 'Login successful')
+        else
+          login_failed
+        end
+      end
+
+    elsif user = login(params[:email], params[:password])
       redirect_back_or_to(:users, notice: 'Login successful')
     else
-      flash.now[:alert] = "Login failed"
-      render action: "new"
+      login_failed
     end
   end
 
@@ -26,9 +33,22 @@ class UserSessionsController < ApplicationController
     redirect_to(:users, notice: 'Logged out!')
   end
 
+  def login_failed
+    flash.now[:alert] = "Login failed"
+    render action: "new"
+  end
+
+  private
+
+  def user_params
+    params.require(:person).permit(:name, :age)
+  end
+
   protected
 
     def auth_callback
-      request.env['omniauth.auth']
+      auth = request.env['omniauth.auth']
+      auth.except "extra" if auth
     end
+
 end
