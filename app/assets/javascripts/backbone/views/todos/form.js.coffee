@@ -4,7 +4,7 @@ class sub.Views.TodosForm extends sub.Views.Base
   collection: new sub.Collections.Todos
   events:
     'click h2' : 'backToIndex'
-    'click .submit' : 'submitForm'
+    'click .submit-ticket' : 'submitForm'
     'click .index' : 'backToIndex'
 
   backToIndex: (event) ->
@@ -13,14 +13,7 @@ class sub.Views.TodosForm extends sub.Views.Base
 
   initialize: (model) ->
     sub.syncing = @
-    if (@model.get('id'))
-      @model.fetch(
-        success: (model, response) =>
-          sub.syncing.render()
-          sub.syncing = {}
-      )
-     else
-      @render()
+    @render()
 
   render: ->
     @$el.html(@template(@model.toJSON()))
@@ -28,13 +21,15 @@ class sub.Views.TodosForm extends sub.Views.Base
   submitForm: (event) ->
     event.preventDefault()
     @model.save(
-      getFormObj(@$el.find('form')),
+      {todo:getFormObj(@$el.find('form'))},
       success: (model, resp) =>
         if (resp.success)
           @leave()
-          sub.mainRouter.navigate('/', true)
+          location.replace "/todos"
+          debugger
         else
           # show error
           alert('There is an error')
     )
+    
 
