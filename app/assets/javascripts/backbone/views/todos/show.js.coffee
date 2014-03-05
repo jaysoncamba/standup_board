@@ -2,7 +2,7 @@ class sub.Views.TodosShow extends sub.Views.Base
   template: JST['todos/show']
   el: '#todos-container'
   events:
-    'click .backToIndex' : 'backToIndex'
+    'click .backtoindex' : 'backToIndex'
   initialize: (model) ->
     sub.syncing = @
     if (@model.get('id'))

@@ -5,6 +5,8 @@ class sub.Views.TodosTableRow extends sub.Views.Base
     'click .edit' : 'editTodo'
     'click .delete' : 'removeTodo'
     'click .update_status' : 'updateTodoStatus'
+    'click .show' : 'showTodo'
+    
 
   initialize: ->
     # the newer syntax which replaces the legacy:
@@ -21,6 +23,9 @@ class sub.Views.TodosTableRow extends sub.Views.Base
 
   editTodo: (event) ->
     sub.mainRouter.navigate('/edit/' + this.model.get('id') , {trigger: true})
+
+  showTodo: (event) ->
+    sub.mainRouter.navigate('/show/' + this.model.get('id') , {trigger: true})
 
   removeTodo: (event) ->
     @model.collection.remove(@model)

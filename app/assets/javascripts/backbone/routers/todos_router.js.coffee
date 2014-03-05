@@ -3,6 +3,7 @@ class sub.Routers.Todos extends Backbone.Router
     '' : 'index'
     'new' : 'form'
     'show/:id' : 'show'
+    'edit/:id' : 'form'
 
   index: ->
     if (!sub.indexView)
