@@ -22,4 +22,5 @@ class sub.Routers.Todos extends Backbone.Router
     new sub.Views.TodosForm(model: model)
 
   show: (id) ->
-    model = new sub.Models.Todo
+    model = new sub.Models.Todo(id: id)
+    new sub.Views.TodosShow(model: model)

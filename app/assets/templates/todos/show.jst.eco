@@ -19,4 +19,4 @@
       </span>
     </li>
 </ul>
-<a href="/todos">Back to Index</a>
+<a href="javascript:void(0)" class='backtoindex'>Back to Index</a>

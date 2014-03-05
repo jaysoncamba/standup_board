@@ -12,8 +12,13 @@ class sub.Views.TodosForm extends sub.Views.Base
     sub.mainRouter.navigate('/', {trigger: true})
 
   initialize: (model) ->
-    sub.syncing = @
-    @render()
+    if (@model.get('id'))
+      @model.fetch(
+        success: (model, response) =>
+          @render()
+      )
+     else
+      @render()
 
   render: ->
     @$el.html(@template(@model.toJSON()))
@@ -25,11 +30,9 @@ class sub.Views.TodosForm extends sub.Views.Base
       success: (model, resp) =>
         if (resp.success)
           @leave()
-          location.replace "/todos"
-          debugger
+          sub.mainRouter.navigate('/', true)
         else
           # show error
           alert('There is an error')
     )
-    
 
