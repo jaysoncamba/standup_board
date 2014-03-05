@@ -1,6 +1,6 @@
 <h2>Todos</h2>
 
-<table>
+<table class='table table-bordered'>
   <thead>
   <tr>
     <th class='ticket'>Ticket</th>
