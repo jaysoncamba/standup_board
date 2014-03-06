@@ -22,12 +22,15 @@ class sub.Views.TodosTableRow extends sub.Views.Base
 
 
   editTodo: (event) ->
+    @leave
     sub.mainRouter.navigate('/edit/' + this.model.get('id') , {trigger: true})
 
   showTodo: (event) ->
+    @leave
     sub.mainRouter.navigate('/show/' + this.model.get('id') , {trigger: true})
 
   removeTodo: (event) ->
+    @leave
     @model.collection.remove(@model)
 
   updateTodoStatus: (event) ->

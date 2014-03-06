@@ -5,4 +5,4 @@ class sub.Views.Base extends Backbone.View
 
   unbindAll: ->
     @off()
-    @undelegateEvents();
+    @undelegateEvents()

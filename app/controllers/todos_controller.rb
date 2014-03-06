@@ -49,6 +49,6 @@ class TodosController < ApplicationController
   end
 
   def todo_params
-    params.require(:todo).permit(:ticket, :title, :description, :status) if params[:todo]
+    params.require(:todo).permit(:ticket, :title, :description, :status, :ticket_url, :pull_request ) if params[:todo]
   end
 end

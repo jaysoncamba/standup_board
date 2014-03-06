@@ -4,7 +4,8 @@ class sub.Views.TodosIndex extends sub.Views.Base
   collection: new sub.Collections.Todos
   events:
     # kinda generic :D
-    'click button' : 'addNewTodo'
+    'click .newTodo' : 'addNewTodo'
+    'click .edit' : 'editTodo'
 
   initialize: ->
     @collection.on('add', @appendTodo, @)
@@ -22,3 +23,5 @@ class sub.Views.TodosIndex extends sub.Views.Base
   addNewTodo: (event) ->
     @leave()
     sub.mainRouter.navigate('/new', {trigger: true})
+
+

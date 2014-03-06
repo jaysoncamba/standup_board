@@ -12,4 +12,4 @@
   </thead>
 </table>
 
-<button>Add New Todo</button>
+<button class = "newTodo">Add New Todo</button>
