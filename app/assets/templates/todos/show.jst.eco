@@ -18,5 +18,17 @@
         <%= statusHelper(@status) %>
       </span>
     </li>
+    <li>
+      <label>Ticket URL</label>
+      <span>
+        <a href="<%= @ticket_url %>" target="_blank"><%= @ticket_url %></a>
+      </span>
+    </li>
+    <li>
+      <label>GitHub Pull Request URL</label>
+      <span>
+        <a href="<%= @pull_request %>" target="_blank"><%= @pull_request %></a>
+      </span>
+    </li>
 </ul>
-<a href="/todos">Back to Index</a>
+<a href="javascript:void(0)" class='backtoindex'>Back to Index</a>

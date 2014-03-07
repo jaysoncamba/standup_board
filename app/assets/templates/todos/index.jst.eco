@@ -1,6 +1,6 @@
 <h2>Todos</h2>
 
-<table>
+<table class='table table-bordered'>
   <thead>
   <tr>
     <th class='ticket'>Ticket</th>
@@ -12,4 +12,4 @@
   </thead>
 </table>
 
-<button>Add New Todo</button>
+<button class = "newTodo">Add New Todo</button>

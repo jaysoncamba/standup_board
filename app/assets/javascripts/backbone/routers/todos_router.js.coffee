@@ -2,6 +2,7 @@ class sub.Routers.Todos extends Backbone.Router
   routes:
     '' : 'index'
     'new' : 'form'
+    'show/:id' : 'show'
     'edit/:id' : 'form'
 
   index: ->
@@ -18,5 +19,9 @@ class sub.Routers.Todos extends Backbone.Router
       sub.indexView.delegateEvents() # delegate events when the view is recycled
 
   form: (id) ->
-    model = new sub.Models.Todo({id: id})
+    model = new sub.Models.Todo(id: id)
     new sub.Views.TodosForm(model: model)
+
+  show: (id) ->
+    model = new sub.Models.Todo(id: id)
+    new sub.Views.TodosShow(model: model)

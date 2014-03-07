@@ -1,8 +1,10 @@
 <h2><%= createOrUpdate(@id) %> Todo</h2>
 <form method="post" id='todo-form'>
+
   <ul>
     <li>
       <label>Ticket</label>
+      <input type='hidden' name='id' class='textfield' value="<%= @id %>"/>
       <span><input type='text' name='ticket' class='textfield' value="<%= @ticket %>"/></span>
     </li>
     <li>
@@ -12,6 +14,14 @@
     <li>
       <label>Description</label>
       <span><textarea name='description' class='textarea'><%= @description %></textarea></span>
+    </li>
+    <li>
+      <label>Ticket Url</label>
+      <span><textarea name='ticket_url' class='textarea'><%= @ticket_url %></textarea></span>
+    </li>
+    <li>
+      <label>Pull Request</label>
+      <span><textarea name='pull_request' class='textarea'><%= @pull_request %></textarea></span>
     </li>
     <li>
       <label>Status</label>
@@ -31,7 +41,7 @@
 
 
 </form>
-<button class="submit btn btn-default" href="javascript:void(0)">
+<button type="submit" class="submit-ticket btn btn-default" >
   Submit
 </button>
 <button class="index btn btn-default" href="javascript:void(0)">

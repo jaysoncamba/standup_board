@@ -4,4 +4,5 @@ class sub.Views.Base extends Backbone.View
     @$el.html('')
 
   unbindAll: ->
-    @off
+    @off()
+    @undelegateEvents()

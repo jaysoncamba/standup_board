@@ -11,7 +11,7 @@ class TodosController < ApplicationController
 
   def create
     @todo = Todo.create(todo_params)
-    respond_with @todo
+    render :json => {model: @todo, success: @todo.errors.empty?}
   end
 
   def destroy
@@ -49,6 +49,6 @@ class TodosController < ApplicationController
   end
 
   def todo_params
-    params.require(:todo).permit(:ticket, :title, :description, :status)
+    params.require(:todo).permit(:ticket, :title, :description, :status, :ticket_url, :pull_request ) if params[:todo]
   end
 end
