@@ -255,6 +255,7 @@ DEPENDENCIES
   jquery-ui-rails
   less-rails
   lodash-rails
+  mail
   omniauth
   omniauth-facebook
   omniauth-github

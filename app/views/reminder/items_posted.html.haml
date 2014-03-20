@@ -10,7 +10,7 @@
         %td Status
         %td Ticket URL
         %td Pull Request
-      -if @todo
+      -if @todos
         -@todos.each do |todo|
           %tr
             %td=todo.ticket
