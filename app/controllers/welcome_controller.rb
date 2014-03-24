@@ -1,13 +1,13 @@
 class WelcomeController < ApplicationController
 
-  before_filter :my_method
+  before_filter :authenticate
   skip_before_filter :require_login
 
   def index
 
   end
 
-  def my_method
+  def authenticate
     redirect_to todos_path if current_user.present?
   end
 
